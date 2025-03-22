@@ -214,6 +214,7 @@ void UBattleManager::CheckCanSkipTurn() const
 void UBattleManager::CheckEndConditions() const
 {
 	OnCanEnd.Broadcast(AIUnits.IsEmpty() || PlayerUnits.IsEmpty() , AIUnits.IsEmpty()); // Notify if the game has ended.
+	OnCanSkipTurn.Broadcast(true); // Enable End Game button
 }
 
 void UBattleManager::FormatAction(const int32 Damage, const FString& StartingTile, 
