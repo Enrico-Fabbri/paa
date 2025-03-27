@@ -226,10 +226,9 @@ void UBattleManager::FormatAction(const int32 Damage, const FString& StartingTil
 	{
 		bIsPlayerTurn ? Text += "HP: " : Text += "AI: ";
 		Cast<ABrawlerUnit>(SelectedUnit) ? Text += "B "	: Text += "S ";
-		Text += StartingTile + " ";
 		
-		if (Damage > 0) Text += FString::FromInt(Damage); // Append damage if attacking.
-		else Text += "-> " + EndTile; // Append movement if moving.	
+		if (Damage > 0) Text += Unit->GetPosition() + " " + FString::FromInt(Damage); // Append damage if attacking.
+		else Text += StartingTile + " -> " + EndTile; // Append movement if moving.	
 	}
 	else
 	{
